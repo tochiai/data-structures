@@ -9,6 +9,7 @@ describe('binarySearchTree', function() {
     expect(binarySearchTree.insert).to.be.a("function");
     expect(binarySearchTree.contains).to.be.a("function");
     expect(binarySearchTree.depthFirstLog).to.be.a("function");
+    expect(binarySearchTree.closest).to.be.a("function");
   });
 
   it('should insert values at the correct location in the tree', function(){
@@ -36,5 +37,15 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     console.log(array);
     expect(array).to.eql([5,2,3]);
+  });
+  it('should find the closest value in the tree', function() {
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(9);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(2);
+    expect(binarySearchTree.closest(6)).to.eql(7);
+    expect(binarySearchTree.closest(2)).to.eql(2);
   });
 });
