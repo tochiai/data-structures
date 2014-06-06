@@ -22,6 +22,7 @@ Graph.prototype.contains = function(node){
 };
 
 Graph.prototype.removeNode = function(node){
+  this.size--;
   delete this.nodes[node];
   for(var key in this.nodes) {
     this.removeEdge(node, key);
